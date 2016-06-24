@@ -2,13 +2,13 @@
     <ion-content>
         <!--<a class="button icon-left ion-arrow-swap button-clear button-dark">sorting</a>-->
         <div class="tabs tabs-icon-top static">
-            <a ui-sref="app.profile" class="tab-item">
+            <a class="tab-item" ng-click="showActionSheet()">
                 <i class="icon ion-arrow-swap"></i> Sorting
             </a>
             <a class="tab-item tab-result">
                 8 Results
             </a>
-            <a ui-sref="app.gallery" class="tab-item">
+            <a ng-click="openFilterModal()" class="tab-item">
                 <i class="icon ion-android-options"></i> Filter
             </a>
         </div>
@@ -28,4 +28,7 @@
             </ion-item>
         </ion-list>
     </ion-content>
+    <script id="my-modal.html" type="text/ng-template">
+    
+    </script>
 </ion-view>

@@ -156,9 +156,38 @@ angular.module('starter.controllers', [])
     ionicMaterialInk.displayEffect();
 })
 
-.controller('OrderSearchCtrl',function($scope,$stateParams,$timeout,ionicMaterialMotion,ionicMaterialInk){
+.controller('OrderSearchCtrl',function($scope,$stateParams,$timeout,ionicMaterialMotion,ionicMaterialInk,$ionicModal,$ionicActionSheet){
      // Activate ink for controller
     ionicMaterialInk.displayEffect();
+    $ionicModal.fromTemplateUrl('templates/order/filter-modal.html',{
+        scope:$scope,
+        animation: 'slide-in-up'
+    }).then(function(modal){
+        $scope.modal = modal;
+    });
+
+    $scope.openFilterModal = function(){
+        $scope.modal.show();
+    }
+    $scope.showActionSheet = function(){
+        $ionicActionSheet.show({
+            buttons:[
+                {
+                    text:'Name',
+                },
+                {
+                    text: 'Create Time'
+                }
+            ],
+            titleText: 'Sorting result',
+            cancel: function(){
+
+            },
+            buttonClicked: function(index){
+                return true;
+            }
+        });
+    }
 })
 
 .controller('GalleryCtrl', function($scope, $stateParams, $timeout, ionicMaterialInk, ionicMaterialMotion) {
